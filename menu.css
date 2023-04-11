@@ -1,0 +1,159 @@
+.menu {
+    height: 100vh;
+    width: 8vw;
+    position: fixed;
+    background: linear-gradient(90deg, #EFFF39 18.52%, rgba(239, 255, 57, 0) 100%);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    cursor: url('myszka.png'), auto;	
+    filter: blur(10px);
+  }
+  
+  .menu .navigation ul {
+    list-style: none;
+    display: flex;
+    transform: rotate(-90deg);
+    margin-top: 42vh;
+    text-transform: uppercase;
+  }
+  .menu .navigation li {
+    margin-right: 35px;
+    font-size: 22px;
+  }
+  
+  .menu .second ul {
+    list-style: none;
+    display: flex;
+    transform: rotate(-90deg);
+    margin-top: 30vh;
+    text-transform: uppercase;
+  }
+  
+  .menu .second li {
+    margin-right: 6px;
+    font-size: 30px;
+    letter-spacing: 1.2px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+  }
+  
+  .menu a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+  .mobile-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #EFFE48;
+    width: 65%;
+    height: 15vh;
+    z-index: 20;
+    padding: 30px 20px;
+    font-size: 35px;
+    background: #EFFF39;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .mobile-info a {
+    color: #000;
+  }
+  
+  
+  @media screen and (min-width: 1279px) {
+    .mobile-info {
+      display: none;
+    }
+    .menu .navigation li {
+      margin-right: 20px;
+      font-size: 16px;
+    }
+    .menu .second li {
+      margin-right: 6px;
+      font-size: 20px;
+    }
+    .menu {
+      width: 4vw;
+      filter: blur(0px);
+    }
+    .menu .second ul {
+      margin-top: 48vh;
+    }
+  }
+  
+  
+    
+  
+  @media screen and (min-width: 1441px) {
+    
+    .menu .navigation li {
+      margin-right: 25px;
+      font-size: 18px;
+    }
+    .menu .second li {
+      margin-right: 8px;
+      font-size: 25px;
+    }
+  }
+  
+  a {
+     cursor: url('myszka.png'), auto;	
+  }
+  
+  
+  .safari_only {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #EFFE48;
+    width: 45%;
+    /* height: 15vh; */
+    z-index: 20;
+    padding: 30px 20px;
+    font-size: 35px;
+    background: #EFFF39;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    font-style: italic;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  ::-webkit-full-page-media, _:future, :root .safari_only {
+   display: flex;
+  }
+  
+  ::i-block-chrome, .safari_only {
+   display: flex;
+  }
+  
+  .safari_only button {
+    background: #000;
+    padding: 7px 12px;
+    color: #fff;
+    border: none;
+    font-family: 'warnock-pro-display', serif;
+    font-size: 25px;
+    font-style: italic;
+    cursor: pointer;
+  }
+
+  .navigation a.active {
+   text-decoration: underline;
+  }

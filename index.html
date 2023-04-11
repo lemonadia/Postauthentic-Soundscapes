@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Postauthentic soundscapes</title>
+  <link rel="stylesheet" href="intro.css" />
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/pni5nvg.css">
+</head>
+
+<body>
+   <div class="mobile-info">
+    <p>This website is not optimized for mobile browsers. You can <a href="mailto:?subject=Post-authentic Soundscapes&amp;body=Check out https://postauthenticsoundscapes.superhi.com//">email yourself</a> a reminder to explore the desktop version.</p>
+  </div>
+  <div class="menu">
+    <div class="navigation">
+      <ul>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="experiment.html">Experiment</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="second">
+        <ul>
+          <li>Postauthentic</li>
+          <li>soundscapes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="disappear" id="section">
+    <div class="bubble"></div>
+    <div class="first-text">
+      <h2 class="stagger">
+        <span>What if we bring all</span>
+        <span>the sounds from our private</span>
+        <span>sonic bubbles to the</span>
+        <span>public soundscape?</span>
+      </h2>
+    </div>
+    <div class="second-text">
+      <h2 class="stagger-second">
+        <span>What kind of noise would</span>
+        <span>our personal soundtracks</span>
+        <span>create?</span>
+      </h2>
+    </div>
+    <a href="experiment.html" class="button-experiment"> <span>Click to experiment</span></a>
+    <img src="vector.svg" class="next" />
+    <div>
+</body>
+<script>
+  
+  const section = document.querySelector("#section");
+const spans = section.querySelectorAll("span");
+const arrow = section.querySelector(".next");
+const firstText = section.querySelector(".first-text"); 
+const secondText = section.querySelector(".second-text"); 
+const button = section.querySelector(".button-experiment"); 
+
+
+
+arrow.addEventListener('click', () => {
+   firstText.style.transform = "translateY(-200%)"
+  secondText.style.transform = "translateX(0)"
+  secondText.style.opacity = "1"
+  button.style.opacity ="1"
+  arrow.style.display = "none"
+});
+
+</script>
+
+</html>

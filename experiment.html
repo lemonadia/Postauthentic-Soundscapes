@@ -1,0 +1,184 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/pni5nvg.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
+</head>
+
+<body>
+  <div id="loading-animation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="mobile-info">
+    <p>This website is not optimized for mobile browsers. You can <a
+        href="mailto:?subject=Post-authentic Soundscapes&amp;body=Check out https://postauthenticsoundscapes.superhi.com//">email
+        yourself</a> a reminder to explore the desktop version.</p>
+  </div>
+  <div class="safari_only">
+    <p>This experiment can be a bit choppy on Safari browser. For the best experience, please visit the site on other
+      browser. </p>
+    <button class="button-safari">Continue anyway</buttom>
+  </div>
+  <div class="menu">
+    <div class="navigation">
+      <ul>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="experiment.html">Experiment</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="second">
+        <ul>
+          <li class="damn">Postauthentic</li>
+          <li>soundscapes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <h1 class="header-information" id="information">Click on the bubbles to burst them and hear the sounds played by
+      different personal listening devices. Try mixing just few tracks or create the most unbearable cacophony by bursting all the bubbles.</h1>
+    <div class="img-container">
+      <img id="img1" src="img/aiaiai1.png"/>
+      <audio id="audio1" src="audio/audio1.mp3"></audio>
+    </div>
+    <div class="img-container">
+      <img id="img2" src="img/discman2.png"/>
+      <audio id="audio2" src="audio/audio2.mp3"></audio>
+    </div>
+    <div class="img-container">
+      <img id="img3" src="img/airpods.png"/>
+      <audio id="audio3" src="audio/audio3.mp3"></audio>
+    </div>
+    <div class="img-container">
+      <img id="img4" src="img/shuffle.png"/>
+      <audio id="audio4" src="audio/audio4.mp3"></audio>
+    </div>
+
+    <div class="img-container">
+      <img id="img5" src="img/nano.png"/>
+      <audio id="audio5" src="audio/audio5.mp3"></audio>
+    </div>
+    <div class="img-container">
+      <img id="img6" src="img/walkman.png"/>
+      <audio id="audio6" src="audio/audio6.mp3"></audio>
+    </div>
+    <div class="img-container">
+      <img id="img8" src="img/ipod.png"/>
+      <audio id="audio8" src="audio/audio8.mp3"></audio>
+    </div>
+    <div class="img-container">
+      <img id="img11" src="img/iphone.png"/>
+      <audio id="audio11" src="audio/audio11.mp3"></audio>
+    </div>
+    <div class="img-container">
+      <img id="img9" src="img/aiaiai2.png"/>
+      <audio id="audio9" src="audio/audio9.mp3"></audio>
+    </div>
+    <div class="img-container">
+      <img id="img0" src="img/discman1.png"/>
+      <audio id="audio0" src="audio/audio0.mp3"></audio>
+    </div>
+    <div class="intro">
+      <p>What if we bring all the sounds from our private sonic bubbles to the public soundscape?</br>
+        What kind of noise would our personal soundtracks create?
+      </p>
+    </div>
+  </div>
+
+</body>
+
+
+<script>
+ 
+  const images = document.querySelectorAll("img");
+
+  images.forEach(img => {
+    img.addEventListener("click", function() {
+      img.classList.toggle("blur");
+      const audioId = `audio${this.id.substr(-1)}`;
+      const audio = document.getElementById(audioId);
+      audio.paused ? audio.play() : audio.pause();
+    });
+  });
+
+ const imgs = document.querySelectorAll(".img-container");
+
+function moveImages() {
+  imgs.forEach(imgContainer => {
+    const img = imgContainer.querySelector("img");
+    const imgWidth = img.offsetWidth;
+    const imgHeight = img.offsetHeight;
+
+    let currentLeft = parseInt(imgContainer.style.left) || Math.random() * (window.innerWidth - imgWidth);
+    let currentTop = parseInt(imgContainer.style.top) || Math.random() * (window.innerHeight - imgHeight);
+
+    let xSpeed = parseFloat(imgContainer.dataset.xSpeed) || 0.5;
+    let ySpeed = parseFloat(imgContainer.dataset.ySpeed) || 0.5;
+
+    let newLeft = currentLeft + xSpeed;
+    let newTop = currentTop + ySpeed;
+
+    if (newLeft + imgWidth >= window.innerWidth || newLeft <= 0) {
+      xSpeed = -xSpeed;
+      newLeft = currentLeft;
+    }
+
+    if (newTop + imgHeight >= window.innerHeight || newTop <= 0) {
+      ySpeed = -ySpeed;
+      newTop = currentTop;
+    }
+
+    imgContainer.style.left = newLeft + "px";
+    imgContainer.style.top = newTop + "px";
+
+    imgContainer.dataset.xSpeed = xSpeed;
+    imgContainer.dataset.ySpeed = ySpeed;
+  });
+}
+
+imgs.forEach((imgContainer, index) => {
+  imgContainer.style.position = "absolute";
+  imgContainer.style.left = Math.random() * (window.innerWidth - imgContainer.offsetWidth) + "px";
+  imgContainer.style.top = Math.random() * (window.innerHeight - imgContainer.offsetHeight) + "px";
+  if (index === 0) {
+    imgContainer.dataset.xSpeed = (index + 1) * 1.5;
+    imgContainer.dataset.ySpeed = (index + 1) * 1.5;
+  } else {
+    imgContainer.dataset.xSpeed = (index + 1) * 0.5;
+    imgContainer.dataset.ySpeed = (index + 1) * 0.5;
+  }
+});
+
+setInterval(moveImages, 50)
+
+window.addEventListener("DOMContentLoaded", function() {
+  // DOM content has finished loading, but some assets may still be pending
+  var audioFiles = document.querySelectorAll("audio");
+  var numAudioFiles = audioFiles.length;
+
+  for (var i = 0; i < numAudioFiles; i++) {
+    audioFiles[i].addEventListener("loadeddata", function() {
+      numAudioFiles--;
+      if (numAudioFiles === 0) {
+        // All audio files have finished loading
+        document.getElementById("loading-animation").style.display = "none";
+      }
+    });
+  }
+});
+const safariOnly =  document.querySelector(".safari_only")
+const button = document.querySelector(".button-safari")
+button.addEventListener("click", () => {
+safariOnly.style.display= "none"
+})
+
+</script>
+
+</html>
